@@ -1,0 +1,4 @@
+name = PackWeb (module)
+description = Custom code for PackWeb sites.
+backdrop = 1.x
+
