@@ -4,5 +4,28 @@
  * Custom code for the PackWeb module.
  */
 
+/**
+ * Implements hook_block_info().
+ */
+function pw_module_block_info() {
+  return array(
+    'packweb' => array(
+      'info' => t('PackWeb'),
+    ),
+  );
+}
 
+/**
+ * Implements hook_block_view().
+ */
+function pw_module_block_view($delta = '', $settings = array(), $contexts = array()) {
+  $block = array();
+
+  if ($delta == 'packweb') {
+    $block['subject'] = NULL;
+    $block['content'] = t('Site by <a href="https://www.packweb.com.au/">PackWeb</a>.');
+  }
+
+  return $block;
+}
 
