@@ -11,6 +11,7 @@ function pw_module_block_info() {
   return array(
     'packweb' => array(
       'info' => t('PackWeb'),
+      'description' => t('"Site by PackWeb" link.'),
     ),
   );
 }
@@ -19,11 +20,13 @@ function pw_module_block_info() {
  * Implements hook_block_view().
  */
 function pw_module_block_view($delta = '', $settings = array(), $contexts = array()) {
-  $block = array();
-
-  if ($delta == 'packweb') {
-    $block['subject'] = NULL;
-    $block['content'] = t('Site by <a href="https://www.packweb.com.au/">PackWeb</a>.');
+  switch ($delta) {
+    case 'packweb':
+      $block['subject'] = NULL;
+      $block['content'] = t('Site by <a href="https://www.packweb.com.au/">PackWeb</a>.');
+    break;
+    default:
+      $block = array();
   }
 
   return $block;
