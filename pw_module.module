@@ -64,7 +64,14 @@ function pw_module_tokens_alter(array &$replacements, array $context) {
         $replacements[$context['tokens']['summary']] = $body[0]['safe_summary'];
       }
       elseif (!empty($body[0]['safe_value'])) {
-        $replacements[$context['tokens']['summary']] = text_summary($body[0]['safe_value'], 'full_editor');
+        module_load_include('inc', 'views', 'includes/utility');
+        $trim_settings = array(
+          'max_length' => 200,
+          'word_boundary' => TRUE,
+          'ellipsis' => TRUE,
+          'html' => TRUE,
+        );
+        $replacements[$context['tokens']['summary']] = views_trim_text($trim_settings, strip_tags($body[0]['safe_value'], '<p><br><a>'));
       }
     }
 
