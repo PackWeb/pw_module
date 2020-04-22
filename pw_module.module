@@ -108,4 +108,3 @@ function pw_module_tokens_alter(array &$replacements, array $context) {
     }
   }
 }
-
