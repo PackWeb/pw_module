@@ -24,7 +24,7 @@ function pw_module_block_view($delta = '', $settings = array(), $contexts = arra
 
   if ($delta == 'packweb') {
     $block['subject'] = NULL;
-    $block['content'] = t('Site by <a href="https://packweb.eu/">PackWeb</a>.');
+    $block['content'] = t('Site by <a href="https://packweb.io/">PackWeb</a>.');
   }
 
   return $block;
